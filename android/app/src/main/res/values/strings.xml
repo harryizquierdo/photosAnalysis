@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">photosAnalysis</string>
+    <string name="title_activity_main">photosAnalysis</string>
+    <string name="package_name">com.neoavance.photoanalysis</string>
+    <string name="custom_url_scheme">com.neoavance.photoanalysis</string>
+</resources>
