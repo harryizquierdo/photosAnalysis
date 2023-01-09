@@ -2,15 +2,7 @@ import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-
-export interface PhotoResponse {
-  id: number;
-  url: string;
-  description: string;
-  type: string;
-  name: string;
-  createdAt: string;
-}
+import { IPhotoResponse } from '../interfaces/iphoto-response'
 
 
 
@@ -22,7 +14,7 @@ export class PhotoService {
   serviceUrl = environment.serviceUrl;
 
   //creamos un array de fotos que tendrá todas las fotos que han sido tomadas
-  photos: PhotoResponse[] = [];
+  photos: IPhotoResponse[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -43,9 +35,9 @@ export class PhotoService {
         photo: photo.base64String
       };
       //Enviamos la petición POST al servicio REST
-      this.http.post<PhotoResponse>(this.serviceUrl, body, {headers}).subscribe(response => {
+      this.http.post<IPhotoResponse>(this.serviceUrl, body, {headers}).subscribe(response => {
         //Creamos una instancia de la interfaz PhotoResponse con los datos recibidos del servicio y la foto
-        const newPhoto: PhotoResponse = {
+        const newPhoto: IPhotoResponse = {
           id: response.id,
           url: photo.webPath ?? '',
           description: response.description,

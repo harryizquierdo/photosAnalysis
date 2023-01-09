@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PhotoService } from '../../service/photo.service';
+import { IPhotoResponse } from '../../interfaces/iphoto-response'
 
 @Component({
   selector: 'app-galery',
@@ -7,7 +8,7 @@ import { PhotoService } from '../../service/photo.service';
 })
 export class GaleryComponent {
 
-  photos: String[] = [];
+  photos: IPhotoResponse[] = [];
 
   constructor(
     private photoService: PhotoService
